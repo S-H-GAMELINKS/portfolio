@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @recruitment.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @recruitment.content %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @recruitment.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_recruitment_path(@recruitment) %> |
+<%= link_to 'Back', recruitments_path %>
