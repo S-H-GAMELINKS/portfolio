@@ -1,0 +1,3 @@
+<p><%= comment.user_id %></p>
+<p><%= comment.content %></p>
+<p><%= link_to "Delete", "#{comment.recruitment_id}/comments/#{comment.id}", method: :delete, data: { confirm: "削除しますか？" } %>

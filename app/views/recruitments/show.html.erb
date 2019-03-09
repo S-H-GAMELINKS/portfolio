@@ -15,5 +15,12 @@
   <%= @recruitment.user_id %>
 </p>
 
+<h2>コメント</h2>
+  <div id="comments">
+    <%= render @recruitment.comments %>
+  </div>
+
+<%= render 'comments/new', recruitment: @recruitment %>
+
 <%= link_to 'Edit', edit_recruitment_path(@recruitment) %> |
 <%= link_to 'Back', recruitments_path %>
