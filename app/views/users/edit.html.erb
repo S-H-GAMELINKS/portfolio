@@ -1,0 +1,11 @@
+<h1>ユーザー情報を編集する</h1>
+<hr>
+<%= form_for @user do |form| %>
+  <p>名前</p>
+  <%= form.text_field :name %>
+  <p>自己紹介</p>
+  <%= form.text_area :self_introduction %>
+  <hr>
+  <%= form.submit "登録する" %>
+<% end %>
+<hr>
