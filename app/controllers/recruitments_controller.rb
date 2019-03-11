@@ -15,6 +15,7 @@ class RecruitmentsController < ApplicationController
   # GET /recruitments/new
   def new
     @recruitment = Recruitment.new
+    @categories = Category.all
   end
 
   # GET /recruitments/1/edit
