@@ -10,7 +10,6 @@ class RecruitmentsController < ApplicationController
   # GET /recruitments/1
   # GET /recruitments/1.json
   def show
-    @photo = Photo.find(photo_params)
   end
 
   # GET /recruitments/new
@@ -74,7 +73,4 @@ class RecruitmentsController < ApplicationController
       params.require(:recruitment).permit(:title, :content, :user_id, :category)
     end
 
-    def photo_params
-      params.require(:photo).permit(:image_data)
-    end
 end
