@@ -1,2 +1,2 @@
-class ImageUploader < ApplicationRecord
+class ImageUploader < Shrine
 end

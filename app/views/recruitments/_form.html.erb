@@ -32,6 +32,11 @@
     <%= form.number_field :user_id %>
   </div>
 
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :recruitment_image %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>
