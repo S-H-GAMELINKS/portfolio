@@ -33,12 +33,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :image_data %>
-    <%= if recruitment.cached_image_data.present? %>
-      <%= image_tag recruitment.image_url %>
-    <% end %>
-    <%= form.hidden_field :image, value: recruitment.cached_image_data %>
-    <%= form.file_field :image %>
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :photo_image %>
   </div>
 
   <div class="actions">

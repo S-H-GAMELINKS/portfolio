@@ -10,6 +10,7 @@ class RecruitmentsController < ApplicationController
   # GET /recruitments/1
   # GET /recruitments/1.json
   def show
+    @photo = Photo.find(photo_params)
   end
 
   # GET /recruitments/new
@@ -70,6 +71,10 @@ class RecruitmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recruitment_params
-      params.require(:recruitment).permit(:title, :content, :user_id, :category, :image)
+      params.require(:recruitment).permit(:title, :content, :user_id, :category)
+    end
+
+    def photo_params
+      params.require(:photo).permit(:image_data)
     end
 end

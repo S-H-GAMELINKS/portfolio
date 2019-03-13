@@ -24,11 +24,11 @@ function uploadAttachment(attachment) {
   var file = attachment.file;
   var form = new FormData;
   form.append("Content-Type", file.type);
-  form.append("recruitment[image]", file);
+  form.append("photo[image]", file);
 
   var xhr = new XMLHttpRequest;
-  xhr.open("Recruitment", "/recruitments.json", true);
-  xhr.setRequestHeader("X-CSRF-Token", Rails.csrftoken());
+  xhr.open("POST", "/photos.json", true);
+  xhr.setRequestHeader("X-CSRF-Token", Rails.csrfToken());
 
   xhr.upload.onprogress = function(event) {
     var progress = event.loaded / event.total * 100;
@@ -45,10 +45,10 @@ function uploadAttachment(attachment) {
     }
   }
 
-  return xhr.send(form);
+   return xhr.send(form);
 }
 
-// Listen for the Trix attachment event to trigger upload
+ // Listen for the Trix attachment event to trigger upload
 document.addEventListener("trix-attachment-add", function(event) {
   var attachment = event.attachment;
   if (attachment.file) {
