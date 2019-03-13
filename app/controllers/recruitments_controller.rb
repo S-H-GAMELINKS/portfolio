@@ -70,6 +70,6 @@ class RecruitmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recruitment_params
-      params.require(:recruitment).permit(:title, :content, :user_id, :category)
+      params.require(:recruitment).permit(:title, :content, :user_id, :category, :image_data)
     end
 end
