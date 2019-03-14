@@ -2,6 +2,18 @@
 <hr>
 <p>ユーザーネーム：<%= @user.name %></p>
 <p>自己紹介：<%= @user.self_introduction %></p>
+<br>
+<div class="box">
+<p>募集投稿</p>
+<div class="scr">
+<% if @user.id == current_user.id %>
+    <% @recruitments.each do |r| %>
+      <p><%= link_to r.title, recruitment_path(r.id) %></p>
+    <% end %>
+<% end %>
+</div>
+
+</div>
 <hr>
 <%= link_to 'ユーザー情報を編集', edit_user_path(@user.id) %>
 <%= link_to 'トップに戻る', root_path %>
