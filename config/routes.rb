@@ -1,13 +1,11 @@
 Rails.application.routes.draw do
-  resources :topics
+  resources :topics, :only => [:show, :index, :new, :create, :edit, :update, :destroy]
   resources :photos
   get 'users/show'
   get 'users/index'
   get 'users/edit'
   get 'users/update'
   devise_for :users
-  get 'comments/create'
-  get 'comments/destroy'
   resources :top, :only => [:index]
   root "top#index"
   resources :users, :only => [:show, :index, :edit, :update]

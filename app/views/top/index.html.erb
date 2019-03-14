@@ -1,1 +1,13 @@
 <%= link_to 'メンバー募集', recruitments_path %>
+
+<div class="box">
+<h3>Topics</h3>
+<div class="scr">
+<% @topics.each do |t| %>
+    <p><a href="/topics/<%= t.id %>"><%= t.title %></a></p>
+<% end %>
+</div>
+<%= link_to '新規投稿', new_topic_path %>
+<br>
+<h3><%= link_to 'more', topics_path %></h3>
+</div>
