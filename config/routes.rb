@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :topics
   resources :photos
   get 'users/show'
   get 'users/index'
