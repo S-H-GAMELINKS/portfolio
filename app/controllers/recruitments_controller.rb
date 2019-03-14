@@ -1,4 +1,6 @@
 class RecruitmentsController < ApplicationController
+
+  before_action :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
   before_action :set_recruitment, only: [:show, :edit, :update, :destroy]
 
   # GET /recruitments
@@ -10,6 +12,7 @@ class RecruitmentsController < ApplicationController
   # GET /recruitments/1
   # GET /recruitments/1.json
   def show
+    @user = User.find(@recruitment.user_id)
   end
 
   # GET /recruitments/new
@@ -25,7 +28,8 @@ class RecruitmentsController < ApplicationController
   # POST /recruitments
   # POST /recruitments.json
   def create
-    @recruitment = Recruitment.new(recruitment_params)
+    @recruitment = Recruitment.new(recruitment_params.merge(:user_id => current_user.id))
+    @user = User.find(@recruitment.user_id)
 
     respond_to do |format|
       if @recruitment.save

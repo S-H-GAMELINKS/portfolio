@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   before_action :set_params, only: [:show, :edit, :update]
 
   def show

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>User:</strong>
+  <%= link_to @user.name, user_path(@user.id) %>
+</p>
+
+<p>
   <strong>Title:</strong>
   <%= @recruitment.title %>
 </p>
@@ -13,11 +18,6 @@
 <p>
   <strong>Content:</strong>
   <%= sanitize @recruitment.content, tags: %w(h1 h2 h3 h4 h5 h6 ul ol li p a img table tr td em br strong div), attributes: %w(id class href) %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @recruitment.user_id %>
 </p>
 
 
