@@ -4,7 +4,8 @@
 <h3>Topics</h3>
 <div class="scr">
 <% @topics.each do |t| %>
-    <p><a href="/topics/<%= t.id %>"><%= t.title %></a></p>
+  <%= link_to t.title, topic_path(t.id) %>
+  <hr>
 <% end %>
 </div>
 <%= link_to '新規投稿', new_topic_path %>
