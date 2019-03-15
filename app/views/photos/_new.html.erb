@@ -1,0 +1,5 @@
+<%= form_with(model: [ @recruitments, Photo.new ], remote: true) do |form| %>
+  Image<br>
+  <%= form.file_field :image, id: :photo_image %><br>
+  <%= form.submit '新規投稿' %>
+<% end %> 

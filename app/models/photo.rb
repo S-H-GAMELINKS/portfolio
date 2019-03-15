@@ -1,3 +1,3 @@
 class Photo < ApplicationRecord
-  include ImageUploader::Attachment.new(:image)
+  include ImageUploader[:image]
 end

@@ -1,17 +1,24 @@
 require 'image_processing/mini_magick'
 
 class ImageUploader < Shrine
-  incluede ImageProcessing::MiniMagick
+  include ImageProcessing::MiniMagick
   plugin :processing
   plugin :versions
   plugin :delete_raw
+  plugin :validation_helpers
 
   process(:store) do |io, context|
     original = io.download
-
+    
     size_400 = resize_to_limit!(original, 400, 400) { |cmd| cmd.auto_orient }
     size_100 = resize_to_limit(size_400, 100, 100)
 
     { original: io, large: size_400, thumb: size_100 }
   end
+
+  Attacher.validate do
+    validate_max_size 5 * 1024 * 1024, message: 'is too large (max is 5MB)'
+    validate_mime_type_inclusion %w(image/jpeg image/png)
+  end
+
 end

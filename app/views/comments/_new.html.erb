@@ -1,6 +1,4 @@
 <%= form_with(model: [ @recruitment, Comment.new ], remote: true) do |form| %>
-  Your Name:<br>
-  <%= form.text_area :user_id %><br>
   Your Comment:<br>
   <%= form.hidden_field :content, id: :comment_content %><br>
   <trix-editor input="comment_content"></trix-editor>

@@ -13,6 +13,7 @@ class RecruitmentsController < ApplicationController
   # GET /recruitments/1.json
   def show
     @user = User.find(@recruitment.user_id)
+    
   end
 
   # GET /recruitments/new
