@@ -20,6 +20,7 @@ class RecruitmentsController < ApplicationController
   def new
     @recruitment = Recruitment.new
     @categories = Category.all
+    @recruitment.photos.build
   end
 
   # GET /recruitments/1/edit
@@ -75,7 +76,8 @@ class RecruitmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recruitment_params
-      params.require(:recruitment).permit(:title, :content, :user_id, :category)
+      params.require(:recruitment).permit(:title, :content, :user_id, :category,
+      photos_attributes: [:image, :id])
     end
 
 end

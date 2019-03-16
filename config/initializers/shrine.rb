@@ -4,10 +4,10 @@ require 'shrine/storage/file_system'
 
 if Rails.env.production?
   s3_options = {
-      access_key_id:     'your_access_key_id',
-      secret_access_key: 'your_secret_access_key',
-      region:            'ap-northeast-1',
-      bucket:            'abc.example.com',
+      access_key_id:     'S3_ACCESS_KEY_ID',
+      secret_access_key: 'S3_SECRET_ACCESS_KEY',
+      region:            'S3_REGION',
+      bucket:            'S3_BUCKET',
   }
  
   Shrine.storages = {

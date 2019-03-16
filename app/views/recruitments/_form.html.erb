@@ -27,7 +27,12 @@
     <trix-editor input="recruitment_text"></trix-editor>
   </div>
 
-  <%= render 'photos/new', recruitment: @recruitment %>
+  <%= form.fields_for :photos do |pf| %>
+    <%= image_tag photos_url if photos_url %>
+    <%= pf.label :image %>
+    <%= pf.hidden_field :image, value: @photo.cached_image_data if defined?(@photo.cached_image_data) %>
+    <%= pf.file_field :image %>
+<% end %>
 
-
+<%= form.submit %>
 <% end %>

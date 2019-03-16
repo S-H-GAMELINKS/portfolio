@@ -9,9 +9,10 @@ class ImageUploader < Shrine
 
   process(:store) do |io, context|
     original = io.download
+    pipeline = ImageProcessing::MiniMagick.source(original)
     
-    size_400 = resize_to_limit!(original, 400, 400) { |cmd| cmd.auto_orient }
-    size_100 = resize_to_limit(size_400, 100, 100)
+    size_400 = pipeline.resize_to_limit!(400, 400)
+    size_100 = pipeline.resize_to_limit!(100, 100)
 
     { original: io, large: size_400, thumb: size_100 }
   end
