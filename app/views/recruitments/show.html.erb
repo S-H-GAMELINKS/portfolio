@@ -6,13 +6,13 @@
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @recruitment.title %>
+  <strong>Category:</strong>
+  <%= @recruitment.category %>
 </p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @recruitment.category %>
+  <strong>Title:</strong>
+  <%= @recruitment.title %>
 </p>
 
 <p>
@@ -20,10 +20,11 @@
   <%= sanitize @recruitment.content, tags: %w(h1 h2 h3 h4 h5 h6 ul ol li p a img table tr td em br strong div), attributes: %w(id class href) %>
 </p>
 
-<p>
-  <storng>Image data:</strong>
-  
-</p>
+
+  <storng>Imagedata:</strong>
+  <div id="photos">
+    <%= render @recruitment.photos %>
+  </div>
 
 <h2>Comments</h2>
   <div id="comments">

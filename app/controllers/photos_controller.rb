@@ -1,5 +1,5 @@
 class PhotosController < ApplicationController
-  before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :set_recruitment, only: [:show, :edit, :update, :destroy]
 
   # GET /photos
   # GET /photos.json
@@ -64,8 +64,8 @@ class PhotosController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_photo
-      @photo = Photo.find(params[:id])
+    def set_recruitment
+      @recruitment = Recruitment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

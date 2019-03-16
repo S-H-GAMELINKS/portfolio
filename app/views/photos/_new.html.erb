@@ -1,5 +1,9 @@
 <%= form_with(model: [ @recruitments, Photo.new ], remote: true) do |form| %>
-  Image<br>
-  <%= form.file_field :image, id: :photo_image %><br>
-  <%= form.submit '新規投稿' %>
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.hidden_field :image, value: @photo.cached_image_data if defined?(@photo.cached_image_data) %>
+    <%= form.file_field :image %>
+    <br>
+    <%= form.submit '新規投稿' %>
+  </div>
 <% end %> 
