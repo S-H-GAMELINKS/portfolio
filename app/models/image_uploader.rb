@@ -8,13 +8,19 @@ class ImageUploader < Shrine
   plugin :validation_helpers
 
   process(:store) do |io, context|
-    original = io.download
-    pipeline = ImageProcessing::MiniMagick.source(original)
-    
-    size_400 = pipeline.resize_to_limit!(400, 400)
-    size_100 = pipeline.resize_to_limit!(100, 100)
+    versions = { original: io }
 
-    { original: io, large: size_400, thumb: size_100 }
+    io.download do |original|
+      pipeline = ImageProcessing::MiniMagick.source(original)
+      thumbnail = ImageProcessing::MiniMagick.source(original).resize_to_limit!(600, 400)
+
+      versions[:large] = pipeline.resize_to_limit!(800, 800)
+      versions[:medium] = pipeline.resize_to_limit!(500, 500)
+      versions[:small] = pipeline.resize_to_limit!(300, 300)
+    end
+
+    versions
+
   end
 
   Attacher.validate do

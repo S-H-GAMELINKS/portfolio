@@ -1,6 +1,6 @@
 require 'shrine'
+require 'shrine/storage/s3'
 require 'shrine/storage/file_system'
-
 
 if Rails.env.production?
   s3_options = {
@@ -12,7 +12,7 @@ if Rails.env.production?
  
   Shrine.storages = {
       cache: Shrine::Storage::S3.new(prefix: 'cache', **s3_options),
-      store: Shrine::Storage::S3.new(prefix: 'store', **s3_options),
+      store: Shrine::Storage::S3.new(**s3_options),
   }
 else
   Shrine.storages = {
