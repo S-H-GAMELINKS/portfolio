@@ -36,6 +36,7 @@ function uploadAttachment(attachment) {
   }
 
   xhr.onload = function() {
+    console.log(xhr.responseText)
     if (xhr.status === 201) {
       var data = JSON.parse(xhr.responseText);
       return attachment.setAttributes({
@@ -55,3 +56,11 @@ document.addEventListener("trix-attachment-add", function(event) {
     return uploadAttachment(attachment);
   }
 });
+
+var buttonHTML, fileInputHTML;
+
+buttonHTML = "<button type=\"button\" class=\"attach\" data-action=\"x-attach\">Attach Files</button>";
+
+fileInputHTML = "<input type=\"file\" multiple>";
+
+$(Trix.config.toolbar.content).find(".button_group.block_tools").append(buttonHTML);
