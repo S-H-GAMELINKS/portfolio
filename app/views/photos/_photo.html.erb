@@ -1,4 +1,7 @@
+<p>
+<string>Image:</string>
 <% if @photo.image_data? %>
   <img src= "<%= @photo.image_url %>">　
 <% end %>
 <%= link_to 'Edit', edit_photo_path(@photo) %>
+</p>
