@@ -1,9 +1,5 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @photo.image %>
-</p>
-
-<%= link_to 'Edit', edit_photo_path(@photo) %> |
-<%= link_to 'Back', photos_path %>
+<string>Image:</string>
+<% if @photo.image_data? %>
+  <img src= "<%= @photo.image_url %>">　
+<% end %>
+<%= link_to 'Edit', edit_photo_path(@photo) %>
