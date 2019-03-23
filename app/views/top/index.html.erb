@@ -1,4 +1,9 @@
-<%= link_to 'メンバー募集', recruitments_path %>
+<div class="jumbotron jumbotron-extend">
+    <div class="container-fluid jumbotron-container">
+        <h1 class="site-name">メンバー募集</h1>
+        <p><a class="btn btn-black" href="/recruitments" role="button"> 募集ページ</a></p>
+    </div>
+</div>
 
 <div class="box">
 <h3>Topics</h3>
@@ -38,3 +43,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+<%= link_to '新規投稿', new_event_path %>
+<br>
+<p><%= link_to 'more', events_path %></p>
