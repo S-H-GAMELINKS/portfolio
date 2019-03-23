@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :events
   resources :topics, :only => [:show, :index, :new, :create, :edit, :update, :destroy]
   resources :photos
   devise_for :users
