@@ -12,6 +12,12 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :image %>
+    <%= form.hidden_field :carousel, value: @event.cached_carousel_data %>
+    <%= form.file_field :carousel %>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
