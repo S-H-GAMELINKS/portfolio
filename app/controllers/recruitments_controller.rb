@@ -7,6 +7,10 @@ class RecruitmentsController < ApplicationController
   # GET /recruitments.json
   def index
     @recruitments = Recruitment.all
+    @search = Recruitment.search(params[:q])
+    @recruitments = @search.result(distinct: true)
+
+    
   end
 
   # GET /recruitments/1

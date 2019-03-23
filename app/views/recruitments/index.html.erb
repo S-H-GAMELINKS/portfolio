@@ -2,6 +2,15 @@
 
 <h1>Recruitments</h1>
 
+<%= search_form_for @search do |f| %>
+  <div class="form-group">
+    <%= f.label :content_cont, "Content" %>
+    <%= f.text_field :content_cont, class: "form-control" %>
+  </div>
+  <div class="actions"><%= f.submit "Search" %></div>
+<% end %>
+
+
 <table>
   <thead>
     <tr>
@@ -12,7 +21,10 @@
   </thead>
 
   <tbody>
+
+
     <% @recruitments.each do |recruitment| %>
+      
       <tr>
         <td><%= link_to User.find(recruitment.user_id).name, user_path(recruitment.user_id) %></td>
         <td><%= link_to recruitment.title, recruitment %></td>
