@@ -1,11 +1,13 @@
 <h1>ユーザー情報を編集する</h1>
 <hr>
-<%= render 'photos/form', photo: @photo %>
 <%= form_for @user do |form| %>
   <p>名前</p>
   <%= form.text_field :name %>
   <p>自己紹介</p>
   <%= form.text_area :self_introduction %>
+  <p>アイコン</p>
+  <%= form.hidden_field :icon, value: @user.cached_icon_data %>
+  <%= form.file_field :icon %>
   <hr>
   <%= form.submit "登録する" %>
 <% end %>
