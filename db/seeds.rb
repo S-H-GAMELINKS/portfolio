@@ -9,4 +9,4 @@
     Category.new(name: "Player募集").save!
     Category.new(name: "Engineer募集").save!
     Category.new(name: "Illustration募集").save!
-    Category.new(name: "Movie募集").save!
+    Category.new(name: "Movie募集").save!AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password') if Rails.env.development?
