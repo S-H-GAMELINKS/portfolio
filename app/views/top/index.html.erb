@@ -23,14 +23,16 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 
   <div class="carousel-inner">
-    <% @events.each do |carousel| %>
-    <div class="carousel-item active"> 
-      <a href="/events/<%= carousel.id %>">
-      <%= image_tag carousel.carousel_url  %>
+    
+    <div class="carousel-item active "> 
+      
+      <%= image_tag "main2.jpg" %>
     </div>
-    <div class="carousel-item"> 
+    <% @events.each do |carousel| %>
+    <div class="carousel-item "> 
       <a href="/events/<%= carousel.id %>">
-      <%= image_tag carousel.carousel_url  %>
+      
+      <%= image_tag carousel.carousel_url %>
     </div>
   <% end %>
   </div>
