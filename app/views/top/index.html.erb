@@ -26,13 +26,13 @@
     
     <div class="carousel-item active "> 
       
-      <%= image_tag "main2.jpg" %>
+      <%= image_tag "main2.jpg", :class => "img-responsive center-block d-block w-100" %>
     </div>
     <% @events.each do |carousel| %>
     <div class="carousel-item "> 
       <a href="/events/<%= carousel.id %>">
       
-      <%= image_tag carousel.carousel_url %>
+      <%= image_tag carousel.carousel_url, :class => "img-responsive center-block d-block w-100" %>
     </div>
   <% end %>
   </div>
